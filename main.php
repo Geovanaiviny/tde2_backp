@@ -1,6 +1,6 @@
 <?php
 
-// Classse curso
+// Classe curso
 class Curso {
   protected $mensalidade;
   protected $turmas;
@@ -34,7 +34,7 @@ class Curso {
   }
 }
 
-$curso_1 = new Curso(900, "1", "Sistemas", "Noite", "Jhonatan Pietro", "Lógica de Programação e Projeto Integrador", 40, "bb15bbcf-9726-470e-afed-9e5b327e8e88" );
+$curso_1 = new Curso(900, "2023.1", "Sistemas", "Noite", "Lógica Matemática", 40, "bb15bbcf-9726-470e-afed-9e5b327e8e88" );
 
 echo $curso_1->mostrarMsgCurso();
 
@@ -44,8 +44,8 @@ echo $curso_1->mostrarMsgCurso();
 
 // Classse Turma
 class Turma extends Curso {
-  public $id_turma;
-  public $professor;
+  protected $id_turma;
+  protected $professor;
   public function __construct($id_turma, $alunos, $cadeira, $professor, $turno) {
     $this->id_turma = $id_turma;
     parent::__construct(null, null, null, $turno, $cadeira, $alunos, null);
@@ -74,13 +74,13 @@ class Turma extends Curso {
 // Classse Professor
 class Professor {
 
-  public $cadeira_pro;
-  public $sal_pro;
-  public $forma_aca;
+  protected $cadeira_pro;
+  protected $sal_pro;
+  protected $forma_aca;
   public $nome;
-  public $endereco;
-  public $telefone;
-  public $cpf;
+  protected $endereco;
+  protected $telefone;
+  protected $cpf;
 
   public function __construct($cadeira_pro, $sal_pro, $forma_aca, $nome, $cpf, $endereco, $telefone) {
 
@@ -96,7 +96,7 @@ class Professor {
   public function mostrarMsgProfessor(){
     $str = "";
     $str .= "Cadeira: {$this->cadeira_pro} \n";
-    $str .= "Salário: {$this->sal_pro} \n";
+    $str .= "Salário: R$ {$this->sal_pro} \n";
     $str .= "Formação Acadêmica: {$this->forma_aca} \n";
     $str .= "Nome: {$this->nome} \n";
     $str .= "CPF: {$this->cpf} \n";
@@ -110,12 +110,12 @@ class Professor {
 }
 
 // Echo Professor
-$professor_t = new Professor("Português", 5000, "Ciências da computação - USP", "Jhonatan Pietro", "12345678900", "Rua do pé de feijão", "(88)99955-6790");
+$professor_t = new Professor("Sistemas", 5000, "Ciências da computação - USP", "Jhonatan Pietro", "12345678900", "Rua do pé de feijão", "(88)99955-6790");
 
 echo $professor_t->mostrarMsgProfessor();
 
 // Echo Turma
-$turma_t1 = new Turma("bb15bbcf-9726-470e-afed-9e5b327e8e88", 40, "Lógica Matemática", "Noite", 5000, "2023.1", "Matemática");
+$turma_t1 = new Turma("bb15bbcf-9726-470e-afed-9e5b327e8e88", 40, "Lógica Matemática", "2023.1", "Noite");
 $turma_t1->addProfessor($professor_t);
 
 echo $turma_t1->mostrarMsg();
@@ -125,12 +125,12 @@ echo $turma_t1->mostrarMsg();
 
 // Classse Aluno
 class Aluno extends Curso {
-  public $nome;
-  public $cpf;
-  public $matricula;
-  public $nascimento;
-  public $email;
-  public $telefone;
+  protected $nome;
+  protected $cpf;
+  protected $matricula;
+  protected $nascimento;
+  protected $email;
+  protected $telefone;
   public $notas = array();
   public $tdes = array();
   public $media = 0.0;
@@ -185,17 +185,17 @@ class Aluno extends Curso {
     $str .= "Nome: {$this->nome}\n";
     $str .= "CPF: {$this->cpf}\n";
     $str .= "Matricula: {$this->matricula}\n";
-    $str .= "Mensalidade: {$this->mensalidade}\n";
+    $str .= "Mensalidade: R$ {$this->mensalidade}\n";
     $str .= "Nascimento: {$this->nascimento}\n";
     $str .= "Email: {$this->email}\n";
     $str .= "Telefone: {$this->telefone}\n";
     $str .= "Turno: {$this->turno}\n";
     $str .= "Endereço: {$this->endereco}\n";
     $str .= "Cadeira: {$this->cadeira}\n";
-    $str .= "-----------------aLUNO---------------\n";
+    $str .= "-----------------Aluno---------------\n";
     return $str;
     
-      
+    
   }
 
   
@@ -203,7 +203,7 @@ class Aluno extends Curso {
 
 
 // Echo Aluno
-$aluno_t = new Aluno("João Silva", "123.456.789-00", "20231130043", 430,00, "21/02/2000","joao@gmail.com","(88) 9 8128-2321", "Noite", "Rua das Flores, 123", "Cadeira01");
+$aluno_t = new Aluno("Nazaré Tedesco", "123.456.789-00", 4308975635, 450,  "21/02/2000", "nazare@gmail.com", "(88) 9 8128-2321", "Noite", "Rua das Flores, 123", "Lógica Matemática");
 
 echo $aluno_t->toString();
 
