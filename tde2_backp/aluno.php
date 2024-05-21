@@ -18,6 +18,9 @@ class Aluno {
   protected $telefone;
   protected $endereco;
   protected $mensalidade;
+  protected $notas = array();
+  protected $tdes = array();
+  protected $media = 0.0;
 
   public function __construct($nome, $cpf, $matricula, $mensalidade, $nascimento, $email, $telefone, $endereco) {
     $this->nome = $nome;
@@ -40,5 +43,32 @@ class Aluno {
            "Telefone: {$this->telefone}\n" .
            "Endereço: {$this->endereco}\n" .
            "-----------------Aluno---------------\n";
+  }
+
+  public function addNota($nota){
+    array_push($this->notas, $nota);
+  }
+
+  public function addTdes($tde){
+    array_push($this->tdes, $tde);
+  }
+
+  public function mediaNotas(){
+    return $this->notas;
+  }
+
+  public function calculaNota(){
+    $mediaTdes = ($this->tdes[0] + $this->tdes[1]) / 2; 
+    $mediaNotas = (($this->notas[0] * 0.4) + ($this->notas[1] * 0.4) + ($mediaTdes * 0.2));
+
+    return $mediaNotas;
+  }
+
+  public function mostrarNota(){ 
+    return "Nota 1: {$this->notas[0]}\n" .
+           "Nota 2: {$this->notas[1]}\n" .
+           "TDE 1: {$this->tdes[0]}\n" .
+           "TDE 2: {$this->tdes[1]}\n" .
+           "Média: {$this->calculaNota()}\n";
   }
 }

@@ -36,4 +36,12 @@ echo $curso_1->mostrarMensagem();
 echo $turma_t1->mostrarMensagem();
 echo $aluno_t->mostrarMensagem();
 
+//Exibir nota
+
+$aluno_t->addNota(8);
+$aluno_t->addNota(10);
+$aluno_t->addTdes(10);
+$aluno_t->addTdes(10);
+echo $aluno_t->mostrarNota();
+
 ?>
