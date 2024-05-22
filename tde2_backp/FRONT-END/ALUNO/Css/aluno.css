@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.aluno{
+    color: #5e7e79;
+}
+
+header nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}  
+
+header nav ul li a{
+    color: black;
+    font-weight: 600;
+}
+
+header nav ul li a:hover{
+    color: #5e7e79;
+}
+
+.aluno-detalhes h2{
+    color: #5e7e79;
+}
+
+
+.container {
+    margin-top: 60px;
+    padding: 0 200px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+td, th {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.label {
+    font-weight: bold;
+    color: #555;
+}
+
+footer {
+    background-color: #5e7e79;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
